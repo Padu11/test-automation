@@ -1,0 +1,969 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="pt_BR" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Site do Contribuinte</title>
+    <script src="/sc/a4j/g/3_3_3.Final/org/ajax4jsf/framework.pack.js" type="text/javascript"></script>
+    <script src="/sc/a4j/g/3_3_3.Final/org/richfaces/ui.pack.js" type="text/javascript"></script>
+    <link class="component" href="/sc/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/basic_both.xcss/DATB/eAG7KV6gGLp8hjQAD0oDMQ__" rel="stylesheet" type="text/css"/>
+    <link class="component" href="/sc/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/extended_both.xcss/DATB/eAG7KV6gGLp8hjQAD0oDMQ__" media="rich-extended-skinning" rel="stylesheet" type="text/css"/>
+    <link class="component" href="/sc/a4j/s/3_3_3.Final/org/richfaces/skin.xcss/DATB/eAG7KV6gGLp8hjQAD0oDMQ__" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+    window.RICH_FACES_EXTENDED_SKINNING_ON = true;
+    </script>
+    <style type="text/css">
+    .rich-page {
+        margin: auto 10px;
+        width: auto;
+    }
+
+    .rich-page-body {
+        float: none;
+        width: auto;
+    }
+    </style>
+    <link rel="shortcut icon" href="/sc//resources/images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="/sc/resources/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/sc/resources/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/sc/resources/css/theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/sc/resources/css/contribuinte.css"/>
+
+    <script type="text/javascript" src="/sc/resources/js/jquery-3.2.1.min.js"></script>
+    <script>
+    jQuery.noConflict();
+    </script>
+    <script type="text/javascript" src="/sc/resources/js/script.js"></script>
+
+    <script type="text/javascript" src="/sc/resources/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/sc/resources/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/sc/resources/css/header-governo-sp/cabecalho-secretarias.css"/>
+    <link rel="stylesheet" type="text/css" href="/sc/resources/css/header-governo-sp/contraste.css"/>
+    <link rel="stylesheet" type="text/css" href="/sc/resources/css/header-governo-sp/rodape.css"/>
+    <link rel="stylesheet" type="text/css" href="/sc/resources/css/bootstrap.min.css"/>
+</head>
+<body style="margin: 0px;">
+    <div class="rich-page " id="j_id0">
+        <div class="rich-page-content " id="j_id0:cnt">
+            <div class="rich-page-main">
+                <div class="rich-page-body ">
+
+                    <style>
+                    .ql-size-small {
+                        font-size: xx-small;
+                    }
+
+                    .ql-size-large {
+                        font-size: large;
+                    }
+
+                    .ql-size-huge {
+                        font-size: x-large;
+                    }
+                    </style>
+                    <script type="text/javascript">
+                    var infoWindowAMShown = false;
+                    var infoWindowAMTimer;
+
+                    function showModalInfoWindow() {
+                        infoWindowAMTimer = setTimeout("if(!infoWindowAMShown){Richfaces.showModalPanel('ajaxLoadingModalBox');infoWindowAMShown=true;}", 500);
+                    }
+                    function hideModalInfoWindow() {
+                        if (infoWindowAMShown) {
+                            Richfaces.hideModalPanel('ajaxLoadingModalBox');
+                            infoWindowAMShown = false;
+                        } else {
+                            if (infoWindowAMTimer)
+                                clearTimeout(infoWindowAMTimer);
+                        }
+                    }
+                    </script>
+                    <div id="ajaxLoadingModalBox" style="display: none;">
+                        <input autocomplete="off" id="ajaxLoadingModalBoxOpenedState" name="ajaxLoadingModalBoxOpenedState" type="hidden"/>
+                        <div class="rich-modalpanel " id="ajaxLoadingModalBoxContainer" style="position: absolute; display: none; z-index: 2000; background-color: inherit;">
+                            <div class="rich-mpnl-mask-div-opaque rich-mpnl-mask-div" id="ajaxLoadingModalBoxDiv" style="z-index: -1;">
+                                <button class="rich-mpnl-button" id="ajaxLoadingModalBoxFirstHref"></button>
+                            </div>
+                            <div class="rich-mpnl-panel">
+                                <div class="rich-mp-container" id="ajaxLoadingModalBoxCDiv" style="position: absolute; left: 0px; top: 0px; z-index: 9;">
+                                    <div class="rich-mpnl-shadow" id="ajaxLoadingModalBoxShadowDiv"></div>
+                                    <div class=" rich-mpnl-content" id="ajaxLoadingModalBoxContentDiv">
+                                        <table border="0" cellpadding="0" cellspacing="0" class="rich-mp-content-table" id="ajaxLoadingModalBoxContentTable" style="width: 1px;height: 1px;">
+                                            <tr style="height: 99%">
+                                                <td class="rich-mpnl-body" valign="top">
+                                                    <div align="center">
+                                                        <img src="/sc/resources/images/preloader.gif" style="clear: both;"/>
+                                                        <br/>
+                                                        <span style="clear: both;">Carregando solicita&ccedil;&atilde;o... isso pode demorar alguns minutos.</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rich-mpnl-mask-div rich-mpnl-mask-div-transparent" id="ajaxLoadingModalBoxCursorDiv" style="z-index: -200;">
+                                <button class="rich-mpnl-button" id="ajaxLoadingModalBoxLastHref"></button>
+                            </div>
+                            <script type="text/javascript">
+                            new ModalPanel('ajaxLoadingModalBox',
+                            {
+                                width: -1,
+                                height: -1,
+
+                                minWidth: -1,
+                                minHeight: -1,
+
+                                resizeable: false,
+                                moveable: true,
+
+                                left: "auto",
+                                top: "auto",
+
+                                zindex: 2000,
+                                onresize: '',
+                                onmove: '',
+                                onshow: '',
+                                onhide: '',
+                                onbeforeshow: '',
+                                onbeforehide: '',
+                                domElementAttachment: "",
+                                keepVisualState: false,
+                                showWhenRendered: false,
+                                selectBehavior: "disable",
+
+                                autosized: true,
+                                overlapEmbedObjects: false
+                            });
+                            </script>
+                        </div>
+                        <script type="text/javascript"></script>
+                    </div>
+                    <span id="_viewRoot:status">
+                        <span id="_viewRoot:status.start" style="display: none"></span>
+                        <script type="text/javascript">
+                        window.document.getElementById('_viewRoot:status.start').onstart = function() {
+                            showModalInfoWindow();
+                            ;
+                        };
+                        </script>
+                        <span id="_viewRoot:status.stop"></span>
+                        <script type="text/javascript">
+                        window.document.getElementById('_viewRoot:status.stop').onstop = function() {
+                            hideModalInfoWindow();
+                            ;
+                        };
+                        </script>
+                    </span>
+                    <div align="center">
+
+                        <div style="width: 1007px">
+
+                            <div class="header">
+
+                                <div class="header-left" align="left">
+                                    <br/>
+                                    <span class="font-title font-size-medium">Governo do Estado de S&atilde;o Paulo</span>
+                                    <br/>
+                                    <a href="/sc/" style="text-decoration: none">
+                                        <span class="font-subtitle font-size-extra-large">Site do Contribuinte</span>
+                                    </a>
+                                    <img src="/sc/resources/images/theme/default/flag.png" width="auto" height="60px" style="float:right !important;  margin-top:-32px;margin-left:5px;"/>
+                                </div>
+                            </div>
+
+                            <div style="clear: both; text-align: left; margin-top: 0px; height: 25px;">
+                                <form id="menu" name="menu" method="post" action="/sc/pages/consultas/consultarDebito.jsf" enctype="application/x-www-form-urlencoded">
+                                    <input type="hidden" name="menu" value="menu"/>
+                                    <table border="0" cellpadding="0" cellspacing="0" class="rich-toolbar rich-toolBar border-default" id="menu:j_id46" width="100%">
+                                        <tr valign="middle">
+                                            <td class="rich-toolbar-item  rich-menu-item" style=";color: #686868; text-align: left;">
+                                                <div class="rich-ddmenu-label rich-ddmenu-label-unselect  " id="menu:j_id1332">
+                                                    <div class="rich-label-text-decor" id="menu:j_id1332_span">Consultas</div>
+                                                    <div style="margin: 0px; padding: 0px; border: 0px; position: absolute; z-index: 100;">
+                                                        <div id="menu:j_id1332_menu" class="rich-menu-list-border" style="display: none; z-index: 2;">
+                                                            <div class="rich-menu-list-bg">
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu3644" onclick="RichFaces.Menu.updateItem(event,this);A4J.AJAX.Submit('menu',event,{'similarityGroupingId':'menu:itemMenu3644','parameters':{'menu:itemMenu3644':'menu:itemMenu3644'} } )">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu3644:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu3644:anchor">Consultar D&eacute;bitos</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4084" onclick="RichFaces.Menu.updateItem(event,this);A4J.AJAX.Submit('menu',event,{'similarityGroupingId':'menu:itemMenu4084','parameters':{'menu:itemMenu4084':'menu:itemMenu4084'} } )">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4084:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4084:anchor">Consultar Parcelamentos</span>
+                                                                </div>
+                                                                <div class="rich-menu-list-strut">
+                                                                    <div class="rich-menu-list-strut" style="">&#160;</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <script id="menu:j_id1332_menu_script" type="text/javascript">
+                                                        new RichFaces.Menu.Layer('menu:j_id1332_menu', {
+                                                            'hideDelay': 800,
+                                                            'delay': 50
+                                                        }).asDropDown('menu:j_id1332').addItems([['menu:itemMenu3644'], ['menu:itemMenu4084']]);
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td align="center">
+                                                <img src="/sc/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.LineSeparatorImage/DATB/eAHr7e1dsGDB!!!!GbgZOAE22QaZ" alt=""/>
+                                            </td>
+                                            <td class="rich-toolbar-item  rich-menu-item" style=";color: #686868; text-align: left;">
+                                                <div class="rich-ddmenu-label rich-ddmenu-label-unselect  " id="menu:j_id1333">
+                                                    <div class="rich-label-text-decor" id="menu:j_id1333_span">Pagamentos</div>
+                                                    <div style="margin: 0px; padding: 0px; border: 0px; position: absolute; z-index: 100;">
+                                                        <div id="menu:j_id1333_menu" class="rich-menu-list-border" style="display: none; z-index: 2;">
+                                                            <div class="rich-menu-list-bg">
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4083" onclick="RichFaces.Menu.updateItem(event,this);A4J.AJAX.Submit('menu',event,{'similarityGroupingId':'menu:itemMenu4083','parameters':{'menu:itemMenu4083':'menu:itemMenu4083'} } )">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4083:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4083:anchor">GARE para Liquida&ccedil;&atilde;o</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu3645" onclick="RichFaces.Menu.updateItem(event,this);A4J.AJAX.Submit('menu',event,{'similarityGroupingId':'menu:itemMenu3645','parameters':{'menu:itemMenu3645':'menu:itemMenu3645'} } )">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu3645:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu3645:anchor">GARE para Parcelamento</span>
+                                                                </div>
+                                                                <div class="rich-menu-list-strut">
+                                                                    <div class="rich-menu-list-strut" style="">&#160;</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <script id="menu:j_id1333_menu_script" type="text/javascript">
+                                                        new RichFaces.Menu.Layer('menu:j_id1333_menu', {
+                                                            'hideDelay': 800,
+                                                            'delay': 50
+                                                        }).asDropDown('menu:j_id1333').addItems([['menu:itemMenu4083'], ['menu:itemMenu3645']]);
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td align="center">
+                                                <img src="/sc/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.LineSeparatorImage/DATB/eAHr7e1dsGDB!!!!GbgZOAE22QaZ" alt=""/>
+                                            </td>
+                                            <td class="rich-toolbar-item  rich-menu-item" style=";color: #686868; text-align: left;">
+                                                <div class="rich-ddmenu-label rich-ddmenu-label-unselect  " id="menu:j_id1334">
+                                                    <div class="rich-label-text-decor" id="menu:j_id1334_span">e-CRDA</div>
+                                                    <div style="margin: 0px; padding: 0px; border: 0px; position: absolute; z-index: 100;">
+                                                        <div id="menu:j_id1334_menu" class="rich-menu-list-border" style="display: none; z-index: 2;">
+                                                            <div class="rich-menu-list-bg">
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu3649" onclick="RichFaces.Menu.updateItem(event,this);A4J.AJAX.Submit('menu',event,{'similarityGroupingId':'menu:itemMenu3649','parameters':{'menu:itemMenu3649':'menu:itemMenu3649'} } )">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu3649:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu3649:anchor">Emitir e-CRDA</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu3650" onclick="RichFaces.Menu.updateItem(event,this);A4J.AJAX.Submit('menu',event,{'similarityGroupingId':'menu:itemMenu3650','parameters':{'menu:itemMenu3650':'menu:itemMenu3650'} } )">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu3650:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu3650:anchor">Autenticar e-CRDA</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4275" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/pdf/crda/ORIENTACAO_SOBRE_TAXA_EMISSAO_DE_CERTIDAO_POSITIVA.pdf')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4275:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4275:anchor">Orienta&ccedil;&atilde;o para Emiss&atilde;o de Taxa de Certid&atilde;o</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4101" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/docx/crda/Requerimento_-_Certidao_com_Efeito_de_Negativa.docx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4101:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4101:anchor">Pedido de Certid&atilde;o Positiva com efeito de Negativa</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4238" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/docx/crda/Requerimento_-_Certidao_Positiva.docx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4238:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4238:anchor">Pedido de Certid&atilde;o Positiva</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4239" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/xlsx/crda/Minuta_de_Planilha_Excel_Aba_Unica.xlsx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4239:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4239:anchor">Planilha Anexo da Portaria SubGCTF n. 20/2021</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4102" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/pdf/crda/Portaria_SUBG_CTF_20_2021.pdf')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4102:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4102:anchor">Portaria SubG/CTF 20 de 2021</span>
+                                                                </div>
+                                                                <div class="rich-menu-list-strut">
+                                                                    <div class="rich-menu-list-strut" style="">&#160;</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <script id="menu:j_id1334_menu_script" type="text/javascript">
+                                                        new RichFaces.Menu.Layer('menu:j_id1334_menu', {
+                                                            'hideDelay': 800,
+                                                            'delay': 50
+                                                        }).asDropDown('menu:j_id1334').addItems([['menu:itemMenu3649'], ['menu:itemMenu3650'], ['menu:itemMenu4275'], ['menu:itemMenu4101'], ['menu:itemMenu4238'], ['menu:itemMenu4239'], ['menu:itemMenu4102']]);
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td align="center">
+                                                <img src="/sc/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.LineSeparatorImage/DATB/eAHr7e1dsGDB!!!!GbgZOAE22QaZ" alt=""/>
+                                            </td>
+                                            <td class="rich-toolbar-item  rich-menu-item" style=";color: #686868; text-align: left;">
+                                                <div class="rich-ddmenu-label rich-ddmenu-label-unselect  " id="menu:j_id1335">
+                                                    <div class="rich-label-text-decor" id="menu:j_id1335_span">Precat&oacute;rio</div>
+                                                    <div style="margin: 0px; padding: 0px; border: 0px; position: absolute; z-index: 100;">
+                                                        <div id="menu:j_id1335_menu" class="rich-menu-list-border" style="display: none; z-index: 2;">
+                                                            <div class="rich-menu-list-bg">
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu3978" onclick="RichFaces.Menu.updateItem(event,this);A4J.AJAX.Submit('menu',event,{'similarityGroupingId':'menu:itemMenu3978','parameters':{'menu:itemMenu3978':'menu:itemMenu3978'} } )">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu3978:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu3978:anchor">Consulta Oferta de Precat&oacute;rio</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu3979" onclick="RichFaces.Menu.updateItem(event,this);A4J.AJAX.Submit('menu',event,{'similarityGroupingId':'menu:itemMenu3979','parameters':{'menu:itemMenu3979':'menu:itemMenu3979'} } )">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu3979:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu3979:anchor">Oferta de Precat&oacute;rio</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu3980" onclick="RichFaces.Menu.updateItem(event,this);A4J.AJAX.Submit('menu',event,{'similarityGroupingId':'menu:itemMenu3980','parameters':{'menu:itemMenu3980':'menu:itemMenu3980'} } )">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu3980:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu3980:anchor">Oferta de Precat&oacute;rio em Lote</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4260" onclick="RichFaces.Menu.updateItem(event,this);A4J.AJAX.Submit('menu',event,{'similarityGroupingId':'menu:itemMenu4260','parameters':{'menu:itemMenu4260':'menu:itemMenu4260'} } )">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4260:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4260:anchor">Resolu&ccedil;&otilde;es</span>
+                                                                </div>
+                                                                <div class="rich-menu-list-strut">
+                                                                    <div class="rich-menu-list-strut" style="">&#160;</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <script id="menu:j_id1335_menu_script" type="text/javascript">
+                                                        new RichFaces.Menu.Layer('menu:j_id1335_menu', {
+                                                            'hideDelay': 800,
+                                                            'delay': 50
+                                                        }).asDropDown('menu:j_id1335').addItems([['menu:itemMenu3978'], ['menu:itemMenu3979'], ['menu:itemMenu3980'], ['menu:itemMenu4260']]);
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td align="center">
+                                                <img src="/sc/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.LineSeparatorImage/DATB/eAHr7e1dsGDB!!!!GbgZOAE22QaZ" alt=""/>
+                                            </td>
+                                            <td class="rich-toolbar-item  rich-menu-item" style=";color: #686868; text-align: left;">
+                                                <div class="rich-ddmenu-label rich-ddmenu-label-unselect  " id="menu:j_id1336">
+                                                    <div class="rich-label-text-decor" id="menu:j_id1336_span">Legisla&ccedil;&atilde;o</div>
+                                                    <div style="margin: 0px; padding: 0px; border: 0px; position: absolute; z-index: 100;">
+                                                        <div id="menu:j_id1336_menu" class="rich-menu-list-border" style="display: none; z-index: 2;">
+                                                            <div class="rich-menu-list-bg">
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu3653" onclick="RichFaces.Menu.updateItem(event,this);A4J.AJAX.Submit('menu',event,{'similarityGroupingId':'menu:itemMenu3653','parameters':{'menu:itemMenu3653':'menu:itemMenu3653'} } )">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu3653:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu3653:anchor">Decretos e Resolu&ccedil;&otilde;es</span>
+                                                                </div>
+                                                                <div class="rich-menu-list-strut">
+                                                                    <div class="rich-menu-list-strut" style="">&#160;</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <script id="menu:j_id1336_menu_script" type="text/javascript">
+                                                        new RichFaces.Menu.Layer('menu:j_id1336_menu', {
+                                                            'hideDelay': 800,
+                                                            'delay': 50
+                                                        }).asDropDown('menu:j_id1336').addItems([['menu:itemMenu3653']]);
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td align="center">
+                                                <img src="/sc/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.LineSeparatorImage/DATB/eAHr7e1dsGDB!!!!GbgZOAE22QaZ" alt=""/>
+                                            </td>
+                                            <td class="rich-toolbar-item  rich-menu-item" style=";color: #686868; text-align: left;">
+                                                <div class="rich-ddmenu-label rich-ddmenu-label-unselect  " id="menu:j_id1337">
+                                                    <div class="rich-label-text-decor" id="menu:j_id1337_span">Requerimentos</div>
+                                                    <div style="margin: 0px; padding: 0px; border: 0px; position: absolute; z-index: 100;">
+                                                        <div id="menu:j_id1337_menu" class="rich-menu-list-border" style="display: none; z-index: 2;">
+                                                            <div class="rich-menu-list-bg">
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4257" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/docx/requerimentos/Ajuizamento_Prioritario.docx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4257:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4257:anchor">Ajuizamento Priorit&aacute;rio</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4267" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/docx/requerimentos/Solicitacao_de_baixa_no_CADIN.docx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4267:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4267:anchor">Baixa CADIN</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4086" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/docx/requerimentos/CUMPRIMENTO_DE_DECISAO_JUDICIAL.docx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4086:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4086:anchor">Cumprimento de Decis&atilde;o Judicial</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4293" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/docx/requerimentos/Requerimento_Divida_Aberta.docx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4293:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4293:anchor">D&iacute;vida Aberta (PGFN)</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4087" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/docx/requerimentos/IMPUTACAO_DE_VALOR_RECOLHIDO_EM_PARCELAMENTO.docx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4087:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4087:anchor">Imputa&ccedil;&atilde;o de Valor Recolhido em Parcelamento</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4088" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/docx/requerimentos/IPVA_-_ESTELIONATO_-_APROPRIACAO_INDEBITA.docx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4088:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4088:anchor">IPVA - Estelionato Apropria&ccedil;&atilde;o Ind&eacute;bita</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4091" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/docx/requerimentos/IPVA_-_VEICULO_LEILOADO_COMO_SUCATA.docx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4091:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4091:anchor">IPVA - Ve&iacute;culo Leiloado como Sucata</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4089" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/docx/requerimentos/IPVA_-_VEICULO_ROUBADO_OU_FURTADO.docx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4089:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4089:anchor">IPVA - Ve&iacute;culo Roubado ou Furtado</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4090" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/docx/requerimentos/IPVA_-_VENDA_DE_VEICULO_ANTES_DO_FATO_GERADOR.docx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4090:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4090:anchor">IPVA - Venda de Ve&iacute;culo Antes do Fato Gerador</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4092" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/docx/requerimentos/OUTRAS_SOLICITACOES.docx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4092:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4092:anchor">Outras Solicita&ccedil;&otilde;es</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4094" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/docx/requerimentos/PAGAMENTO_POSTERIOR_A_INSCRICAO_NA_DIVIDA_ATIVA.docx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4094:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4094:anchor">Pagamento Posterior &agrave; Inscri&ccedil;&atilde;o na D&iacute;vida Ativa</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4098" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/docx/requerimentos/RECURSO_ADMINISTRATIVO.docx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4098:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4098:anchor">Recurso Administrativo</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4096" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/docx/requerimentos/RESTITUICAO_DE_VALORES.docx')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4096:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4096:anchor">Restitui&ccedil;&atilde;o de Valores</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4099" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/pdf/requerimentos/ENDERECO_ELETRONICO_PARA_ENVIO_DE_PEDIDO_ADMINISTRATIVO.pdf')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4099:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4099:anchor">Endere&ccedil;os Eletr&ocirc;nicos para Protocolo de Pedidos</span>
+                                                                </div>
+                                                                <div class="rich-menu-list-strut">
+                                                                    <div class="rich-menu-list-strut" style="">&#160;</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <script id="menu:j_id1337_menu_script" type="text/javascript">
+                                                        new RichFaces.Menu.Layer('menu:j_id1337_menu', {
+                                                            'hideDelay': 800,
+                                                            'delay': 50
+                                                        }).asDropDown('menu:j_id1337').addItems([['menu:itemMenu4257'], ['menu:itemMenu4267'], ['menu:itemMenu4086'], ['menu:itemMenu4293'], ['menu:itemMenu4087'], ['menu:itemMenu4088'], ['menu:itemMenu4091'], ['menu:itemMenu4089'], ['menu:itemMenu4090'], ['menu:itemMenu4092'], ['menu:itemMenu4094'], ['menu:itemMenu4098'], ['menu:itemMenu4096'], ['menu:itemMenu4099']]);
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td align="center">
+                                                <img src="/sc/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.LineSeparatorImage/DATB/eAHr7e1dsGDB!!!!GbgZOAE22QaZ" alt=""/>
+                                            </td>
+                                            <td class="rich-toolbar-item  rich-menu-item" style=";color: #686868; text-align: left;">
+                                                <div class="rich-ddmenu-label rich-ddmenu-label-unselect  " id="menu:j_id1338">
+                                                    <div class="rich-label-text-decor" id="menu:j_id1338_span">D&uacute;vidas</div>
+                                                    <div style="margin: 0px; padding: 0px; border: 0px; position: absolute; z-index: 100;">
+                                                        <div id="menu:j_id1338_menu" class="rich-menu-list-border" style="display: none; z-index: 2;">
+                                                            <div class="rich-menu-list-bg">
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4199" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/pdf/duvidas/Atendimento_PGE.pdf')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4199:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4199:anchor">Atendimento</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu3652" onclick="RichFaces.Menu.updateItem(event,this);A4J.AJAX.Submit('menu',event,{'similarityGroupingId':'menu:itemMenu3652','parameters':{'menu:itemMenu3652':'menu:itemMenu3652'} } )">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu3652:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu3652:anchor">Fale Conosco</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4292" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/pdf/duvidas/Manual_Divida_Aberta.pdf')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4292:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4292:anchor">Manual - D&iacute;vida Aberta</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4272" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/pdf/duvidas/Manual_de_Certidao_de_Debitos.pdf')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4272:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4272:anchor">Manual de Certid&atilde;o de D&eacute;bitos</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4082" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/pdf/duvidas/Manual-de-Utilizacao-do-Site.pdf')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4082:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4082:anchor">Manual de consulta e pagamento de d&eacute;bitos</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4246" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/pdf/manuais/Manual_Licenciamento.pdf')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4246:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4246:anchor">Manual de Licenciamento</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4270" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/pdf/duvidas/Manual-Requerimentos.pdf')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4270:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4270:anchor">Manual de Requerimentos</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4277" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/pdf/duvidas/Manual_Taxas_Judiciarias.pdf')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4277:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4277:anchor">Manual de Taxas Judici&aacute;rias</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4109" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/pdf/manuais/Manual_de_uso_do_Fale_Conosco.pdf')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4109:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4109:anchor">Manual de uso do Fale Conosco</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu4110" onclick="RichFaces.Menu.updateItem(event,this);window.open('/sc/resources/pdf/duvidas/Manual_do_Parcelamento.pdf')">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu4110:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu4110:anchor">Manual do Parcelamento</span>
+                                                                </div>
+                                                                <div class="rich-menu-item rich-menu-item-enabled" id="menu:itemMenu3651" onclick="RichFaces.Menu.updateItem(event,this);A4J.AJAX.Submit('menu',event,{'similarityGroupingId':'menu:itemMenu3651','parameters':{'menu:itemMenu3651':'menu:itemMenu3651'} } )">
+                                                                    <span class="rich-menu-item-icon  " id="menu:itemMenu3651:icon">
+                                                                        <img alt="" height="16" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="16"/>
+                                                                    </span>
+                                                                    <span class="rich-menu-item-label" id="menu:itemMenu3651:anchor">Perguntas e Respostas</span>
+                                                                </div>
+                                                                <div class="rich-menu-list-strut">
+                                                                    <div class="rich-menu-list-strut" style="">&#160;</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <script id="menu:j_id1338_menu_script" type="text/javascript">
+                                                        new RichFaces.Menu.Layer('menu:j_id1338_menu', {
+                                                            'hideDelay': 800,
+                                                            'delay': 50
+                                                        }).asDropDown('menu:j_id1338').addItems([['menu:itemMenu4199'], ['menu:itemMenu3652'], ['menu:itemMenu4292'], ['menu:itemMenu4272'], ['menu:itemMenu4082'], ['menu:itemMenu4246'], ['menu:itemMenu4270'], ['menu:itemMenu4277'], ['menu:itemMenu4109'], ['menu:itemMenu4110'], ['menu:itemMenu3651']]);
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td style="width:100%"></td>
+                                            <td class="rich-toolbar-item  " style=";color: #686868; padding-right: 0px;">
+                                                <input onclick="location.href='/sc/loginInternet.jsf'; return false;" id="menu:j_id49" style="color: white; background: #2646b1; border-radius: 3px; border: none; text-align: center; height: 21px; cursor: pointer;" value="Entrar" type="button"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id3"/>
+                                </form>
+                            </div>
+
+                            <div align="left" style="text-align: left;">
+
+                                <div class="border-default" style="margin-top: 15px;">
+
+                                    <div class="body-top-background">
+                                        <table style="color: #ABABAB; font-size: 10px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div align="right">
+                                                            <span id="browser" class="ux-identification-text" style="padding-right: 10px">Safari 17.4.1</span>
+                                                            <span class="font-light" style="color: #034ea2;">22/05/2024 23:56 | 20-1</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                    <div style="margin-top: 5px; padding-left: 15px; padding-right: 15px;">
+
+                                        <div align="left" class="font-title font-size-large" style="margin-bottom: 5px; padding-left: 0px;">
+                                            <span id="outputTextContentTitle">Consultar D&eacute;bito</span>
+                                        </div>
+
+                                        <div style="min-height: 400px;">
+                                            <span id="ajaxMessages">
+
+                                                <div style="clear: both; float: left; margin-top: 20px; width: 100%;" align="left">
+                                                    <table id="messages" cellpadding="0" cellspacing="0" class="rich-messages" style="display: none; width: 100%; height: 30px; margin-bottom: 5px;">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <form id="consultaDebitoForm" name="consultaDebitoForm" method="post" action="/sc/pages/consultas/consultarDebito.jsf" enctype="application/x-www-form-urlencoded">
+                                                    <input type="hidden" name="consultaDebitoForm" value="consultaDebitoForm"/>
+                                                    <span id="consultaDebitoForm:consulta">
+                                                        <div class="rich-panel " id="consultaDebitoForm:j_id76">
+                                                            <div class="rich-panel-header " id="consultaDebitoForm:j_id76_header">Consulta de D&eacute;bitos Inscritos na D&iacute;vida Ativa</div>
+                                                            <div class="rich-panel-body " id="consultaDebitoForm:j_id76_body">
+                                                                <table width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div id="camposPesquisa" style="margin-bottom: 8px; margin-right: 100px;">
+                                                                                    <div id="consultaDebitoForm:decLblTipoConsulta">
+                                                                                        <label style="float: left; width: 200px;" class="">
+
+                                                                                            Informe o tipo de pesquisa:
+                                                                                            <span class="required">*</span>
+                                                                                        </label>
+                                                                                        <span class="">
+                                                                                            <select id="consultaDebitoForm:decLblTipoConsulta:opcoesPesquisa" name="consultaDebitoForm:decLblTipoConsulta:opcoesPesquisa" size="1" onchange="A4J.AJAX.Submit('consultaDebitoForm',event,{'control':this,'similarityGroupingId':'consultaDebitoForm:decLblTipoConsulta:j_id86','parameters':{'ajaxSingle':'consultaDebitoForm:decLblTipoConsulta:opcoesPesquisa','consultaDebitoForm:decLblTipoConsulta:j_id86':'consultaDebitoForm:decLblTipoConsulta:j_id86'} } )" style="width: 148px;">
+                                                                                                <option value="CDA" selected="selected">CDA</option>
+                                                                                                <option value="CNPJ">CNPJ</option>
+                                                                                                <option value="CNPJ_BASE">CNPJ Base</option>
+                                                                                                <option value="CPF">CPF</option>
+                                                                                                <option value="ETIQUETA">Etiqueta</option>
+                                                                                                <option value="INSCRICAO_ESTADUAL">Inscri&ccedil;&atilde;o Estadual</option>
+                                                                                                <option value="NUMERO_PARCELAMENTO">N&ordm; Parcelamento</option>
+                                                                                                <option value="RENAVAM">Renavam</option>
+                                                                                                <option value="AIIM">AIIM</option>
+                                                                                            </select>
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <img alt="" class="rich-spacer " height="10px" id="consultaDebitoForm:j_id88" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="1"/>
+                                                                                    <span id="consultaDebitoForm:docPanel" style="margin-right:300px;">
+                                                                                        <div id="consultaDebitoForm:decTxtTipoConsulta">
+                                                                                            <label style="float: left; width: 200px;" class="">
+
+                                                                                                CDA:
+                                                                                                <span class="required">*</span>
+                                                                                            </label>
+                                                                                            <span class="">
+                                                                                                <input id="consultaDebitoForm:decTxtTipoConsulta:cdaEtiqueta" type="text" name="consultaDebitoForm:decTxtTipoConsulta:cdaEtiqueta" maxlength="10" onkeypress="return onlyDigits(event); ignorarEnterFormulario(event)" size="20"/>
+
+                                                                                                <div style="margin-left: -10px; margin-top: 12px;">
+                                                                                                    <span id="consultaDebitoForm:decTxtTipoConsulta:pnlTipoDebitoCnpj"></span>
+                                                                                                </div>
+
+                                                                                                <div style="margin-left: -10px; margin-top: 12px;">
+                                                                                                    <span id="consultaDebitoForm:decTxtTipoConsulta:pnlTipoDebitoCnpjBase"></span>
+                                                                                                </div>
+                                                                                            </span>
+                                                                                        </div>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>
+                                                                                <span id="consultaDebitoForm:painelCaptcha">
+
+                                                                                    <script src="https://www.google.com/recaptcha/api.js"></script>
+                                                                                    <span id="consultaDebitoForm:codCaptcha">
+                                                                                        <div class="g-recaptcha" data-sitekey="6Le9EjMUAAAAAPKi-JVCzXgY_ePjRV9FFVLmWKB_" id="recaptcha" style.display="none"></div>
+                                                                                        <div id="messageRecaptcha" style="display.none">
+                                                                                            <p style="text-align: left;">O reCAPTCHA suporta as seguintes vers&otilde;es de navegadores:</p>
+                                                                                            <p style="text-align: left;">1.Chrome</p>
+                                                                                            <p style="text-align: left;">2.Firefox</p>
+                                                                                            <p style="text-align: left;">3.Safari</p>
+                                                                                            <p style="text-align: left;">4.IE (vers&otilde;es maiores que 8)</p>
+                                                                                        </div>
+                                                                                    </span>
+                                                                                    <script type="text/javascript">
+                                                                                    if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
+                                                                                        var ieversion = new Number(RegExp.$1)
+                                                                                        if (ieversion > 8) {
+                                                                                            // Para IE9 ou superior
+                                                                                            document.getElementById("recaptcha").style.display = "block";
+                                                                                            document.getElementById("messageRecaptcha").style.display = "none";
+                                                                                        } else {
+                                                                                            document.getElementById("messageRecaptcha").style.display = "block";
+                                                                                            document.getElementById("recaptcha").style.display = "none";
+                                                                                        }
+                                                                                    } else {
+                                                                                        document.getElementById("recaptcha").style.display = "block";
+                                                                                        document.getElementById("messageRecaptcha").style.display = "none";
+                                                                                    }
+                                                                                    </script>
+                                                                                </span>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <img alt="" class="rich-spacer " height="5px" id="consultaDebitoForm:j_id108" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="1"/>
+                                                                <div id="consultaDebitoForm:j_id109" style="font-size: 0px;">
+                                                                    <div class="rich-separator custom-rich-separator" style="height: 1px; background-image: url(/sc/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.images.SimpleSeparatorImage/DATB/eAFjYOzt7WUBAAUEAa0_); null;"></div>
+                                                                </div>
+                                                                <img alt="" class="rich-spacer " height="5px" id="consultaDebitoForm:j_id110" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="1"/>
+                                                                <div class="action-button">
+                                                                    <input type="submit" name="consultaDebitoForm:j_id112" value="Limpar" onclick="showModalInfoWindow();"/>
+                                                                    <input type="submit" name="consultaDebitoForm:j_id114" value="Consultar" onclick="showModalInfoWindow();"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <img alt="" class="rich-spacer " height="10px" id="consultaDebitoForm:j_id117" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="1"/>
+                                                        <span id="consultaDebitoForm:consultaSearchResultBlock"></span>
+                                                    </span>
+                                                    <div id="consultaDebitoForm:modalSelecionarDebito" style="display: none;">
+                                                        <input autocomplete="off" id="consultaDebitoForm:modalSelecionarDebitoOpenedState" name="consultaDebitoForm:modalSelecionarDebitoOpenedState" type="hidden"/>
+                                                        <div class="rich-modalpanel " id="consultaDebitoForm:modalSelecionarDebitoContainer" style="position: absolute; display: none; z-index: 100; background-color: inherit;">
+                                                            <div class="rich-mpnl-mask-div-opaque rich-mpnl-mask-div" id="consultaDebitoForm:modalSelecionarDebitoDiv" style="z-index: -1;">
+                                                                <button class="rich-mpnl-button" id="consultaDebitoForm:modalSelecionarDebitoFirstHref"></button>
+                                                            </div>
+                                                            <div class="rich-mpnl-panel">
+                                                                <div class="rich-mp-container" id="consultaDebitoForm:modalSelecionarDebitoCDiv" style="position: absolute; left: 0px; top: 0px; z-index: 9;">
+                                                                    <div class="rich-mpnl-shadow" id="consultaDebitoForm:modalSelecionarDebitoShadowDiv"></div>
+                                                                    <div class="rich-mpnl-ovf-hd rich-mpnl-trim rich-mpnl-content" id="consultaDebitoForm:modalSelecionarDebitoContentDiv">
+                                                                        <div class="rich-mpnl-text rich-mpnl-controls ">
+                                                                            <img id="consultaDebitoForm:hide_link" src="/sc/resources/images/buttons/close-button.png"/>
+                                                                            <script type="text/javascript">
+                                                                            Richfaces.componentControl.attachAvailable('#consultaDebitoForm\\:hide_link', 'onclick', '#consultaDebitoForm\\:modalSelecionarDebito', 'hide')
+                                                                            </script>
+                                                                        </div>
+                                                                        <table border="0" cellpadding="0" cellspacing="0" class="rich-mp-content-table" id="consultaDebitoForm:modalSelecionarDebitoContentTable" style="height: 100%; width: 100%;">
+                                                                            <tr style="height: 1%;">
+                                                                                <td class="rich-mpnl-header-cell">
+                                                                                    <div class="rich-mpnl-text rich-mpnl-header " id="consultaDebitoForm:modalSelecionarDebitoHeader" style="white-space: nowrap;">Aten&ccedil;&atilde;o</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr style="height: 99%">
+                                                                                <td class="rich-mpnl-body" valign="top">
+                                                                                    <div align="center">
+                                                                                        <table style="text-align: left;">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        <img src="/sc/resources/images/icons/medium-info-icon.gif" height="30" width="30"/>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <span style="margin-left: 20px;">Foram encontrados mais de um d&eacute;bito com a CDA informada. Por favor, selecione o d&eacute;bito desejado.</span>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                        <table style="text-align: left;">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td></td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rich-mpnl-mask-div rich-mpnl-mask-div-transparent" id="consultaDebitoForm:modalSelecionarDebitoCursorDiv" style="z-index: -200;">
+                                                                <button class="rich-mpnl-button" id="consultaDebitoForm:modalSelecionarDebitoLastHref"></button>
+                                                            </div>
+                                                            <script type="text/javascript">
+                                                            new ModalPanel('consultaDebitoForm:modalSelecionarDebito',
+                                                            {
+                                                                width: 900,
+                                                                height: 380,
+
+                                                                minWidth: 900,
+                                                                minHeight: -1,
+
+                                                                resizeable: false,
+                                                                moveable: true,
+
+                                                                left: "auto",
+                                                                top: "auto",
+
+                                                                zindex: 100,
+                                                                onresize: '',
+                                                                onmove: '',
+                                                                onshow: '',
+                                                                onhide: '',
+                                                                onbeforeshow: '',
+                                                                onbeforehide: '',
+                                                                domElementAttachment: "",
+                                                                keepVisualState: false,
+                                                                showWhenRendered: false,
+                                                                selectBehavior: "disable",
+
+                                                                autosized: false,
+                                                                overlapEmbedObjects: false
+                                                            });
+                                                            </script>
+                                                        </div>
+                                                        <script type="text/javascript"></script>
+                                                    </div>
+
+                                                    <style type="text/css">
+                                                    .columnTextCenter {
+                                                        text-align: center;
+                                                    }
+                                                    </style>
+                                                    <div id="consultaDebitoForm:modalDadosCartorio" style="display: none;">
+                                                        <input autocomplete="off" id="consultaDebitoForm:modalDadosCartorioOpenedState" name="consultaDebitoForm:modalDadosCartorioOpenedState" type="hidden"/>
+                                                        <div class="rich-modalpanel " id="consultaDebitoForm:modalDadosCartorioContainer" style="position: absolute; display: none; z-index: 100; background-color: inherit;">
+                                                            <div class="rich-mpnl-mask-div-opaque rich-mpnl-mask-div" id="consultaDebitoForm:modalDadosCartorioDiv" style="z-index: -1;">
+                                                                <button class="rich-mpnl-button" id="consultaDebitoForm:modalDadosCartorioFirstHref"></button>
+                                                            </div>
+                                                            <div class="rich-mpnl-panel">
+                                                                <div class="rich-mp-container" id="consultaDebitoForm:modalDadosCartorioCDiv" style="position: absolute; left: 0px; top: 0px; z-index: 9;">
+                                                                    <div class="rich-mpnl-shadow" id="consultaDebitoForm:modalDadosCartorioShadowDiv"></div>
+                                                                    <div class="rich-mpnl-ovf-hd rich-mpnl-trim rich-mpnl-content" id="consultaDebitoForm:modalDadosCartorioContentDiv">
+                                                                        <div class="rich-mpnl-text rich-mpnl-controls ">
+                                                                            <img id="consultaDebitoForm:hidelinkCartorio" src="/sc/resources/images/buttons/close-button.png"/>
+                                                                            <script type="text/javascript">
+                                                                            Richfaces.componentControl.attachAvailable('#consultaDebitoForm\\:hidelinkCartorio', 'onclick', '#consultaDebitoForm\\:modalDadosCartorio', 'hide')
+                                                                            </script>
+                                                                        </div>
+                                                                        <table border="0" cellpadding="0" cellspacing="0" class="rich-mp-content-table" id="consultaDebitoForm:modalDadosCartorioContentTable" style="height: 100%; width: 100%;">
+                                                                            <tr style="height: 1%;">
+                                                                                <td class="rich-mpnl-header-cell">
+                                                                                    <div class="rich-mpnl-text rich-mpnl-header " id="consultaDebitoForm:modalDadosCartorioHeader" style="white-space: nowrap;">Procuradoria Geral do Estado - D&iacute;vida Ativa - Dados do Cart&oacute;rio de Protesto</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr style="height: 99%">
+                                                                                <td class="rich-mpnl-body" valign="top">
+
+                                                                                    <br/>
+                                                                                    <br/>
+                                                                                    <label>
+                                                                                    Situa&ccedil;&atilde;o Protesto: </label>
+                                                                                    <br/>
+                                                                                    <label>
+                                                                                    Comarca: </label>
+                                                                                    <br/>
+                                                                                    <label>
+                                                                                    N&deg; Protocolo: </label>
+                                                                                    <br/>
+                                                                                    <label>
+                                                                                    Data de abertura: </label>
+                                                                                    <br/>
+                                                                                    <br/>
+                                                                                    <br/>
+                                                                                    <span id="consultaDebitoForm:mensagensDadosNaoEncontrados">
+                                                                                        <label>
+                                                                                        N&atilde;o foram encontradas as informa&ccedil;&otilde;es sobre o cart&oacute;rio.</label>
+                                                                                        <br/>
+                                                                                        <label>
+                                                                                        Favor, dirigir-se &agrave; unidade da Procuradoria Geral do Estado mais pr&oacute;xima.</label>
+                                                                                    </span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                    <div class="rich-mpnl-resizer" id="consultaDebitoForm:modalDadosCartorioResizerN" style="width: 40px; height: 4px;"></div>
+                                                                    <div class="rich-mpnl-resizer" id="consultaDebitoForm:modalDadosCartorioResizerE" style="height: 40px; width: 4px;"></div>
+                                                                    <div class="rich-mpnl-resizer" id="consultaDebitoForm:modalDadosCartorioResizerS" style="width: 40px; height: 4px;"></div>
+                                                                    <div class="rich-mpnl-resizer" id="consultaDebitoForm:modalDadosCartorioResizerW" style="height: 40px; width: 4px;"></div>
+                                                                    <div class="rich-mpnl-resizer" id="consultaDebitoForm:modalDadosCartorioResizerNWU" style="width: 40px; height: 4px;"></div>
+                                                                    <div class="rich-mpnl-resizer" id="consultaDebitoForm:modalDadosCartorioResizerNEU" style="height: 40px; width: 4px;"></div>
+                                                                    <div class="rich-mpnl-resizer" id="consultaDebitoForm:modalDadosCartorioResizerNEL" style="width: 40px; height: 4px;"></div>
+                                                                    <div class="rich-mpnl-resizer" id="consultaDebitoForm:modalDadosCartorioResizerSEU" style="height: 40px; width: 4px;"></div>
+                                                                    <div class="rich-mpnl-resizer" id="consultaDebitoForm:modalDadosCartorioResizerSEL" style="width: 40px; height: 4px;"></div>
+                                                                    <div class="rich-mpnl-resizer" id="consultaDebitoForm:modalDadosCartorioResizerSWL" style="height: 40px; width: 4px;"></div>
+                                                                    <div class="rich-mpnl-resizer" id="consultaDebitoForm:modalDadosCartorioResizerSWU" style="width: 40px; height: 4px;"></div>
+                                                                    <div class="rich-mpnl-resizer" id="consultaDebitoForm:modalDadosCartorioResizerNWL" style="height: 40px; width: 4px;"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rich-mpnl-mask-div rich-mpnl-mask-div-transparent" id="consultaDebitoForm:modalDadosCartorioCursorDiv" style="z-index: -200;">
+                                                                <button class="rich-mpnl-button" id="consultaDebitoForm:modalDadosCartorioLastHref"></button>
+                                                            </div>
+                                                            <script type="text/javascript">
+                                                            new ModalPanel('consultaDebitoForm:modalDadosCartorio',
+                                                            {
+                                                                width: 800,
+                                                                height: 350,
+
+                                                                minWidth: -1,
+                                                                minHeight: -1,
+
+                                                                resizeable: true,
+                                                                moveable: true,
+
+                                                                left: "auto",
+                                                                top: "auto",
+
+                                                                zindex: 100,
+                                                                onresize: '',
+                                                                onmove: '',
+                                                                onshow: '',
+                                                                onhide: '',
+                                                                onbeforeshow: '',
+                                                                onbeforehide: '',
+                                                                domElementAttachment: "",
+                                                                keepVisualState: false,
+                                                                showWhenRendered: false,
+                                                                selectBehavior: "disable",
+
+                                                                autosized: false,
+                                                                overlapEmbedObjects: false
+                                                            });
+                                                            </script>
+                                                        </div>
+                                                        <script type="text/javascript"></script>
+                                                    </div>
+                                                    <input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id3"/>
+                                                </form>
+                                                <img alt="" class="rich-spacer " height="20px" id="j_id1315" src="/sc/a4j/g/3_3_3.Finalimages/spacer.gif" width="1"/>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div align="center" class="border-default" style="margin-top: 15px;">
+
+                                <div class="footer-background">
+
+                                    <div style="float: left; margin-top: 5px;" align="left">
+                                        <span class="font-subtitle">Procuradoria Geral do Estado de S&atilde;o Paulo</span>
+                                    </div>
+
+                                    <div style="float: right; margin-top: 5px;">
+                                        <a href="http://www.prodesp.sp.gov.br" target="_blank">
+                                            <img src="/sc/resources/images/theme/default/logotipo-prodesp.png" alt="Site da PRODESP" height="18px" style="border: 0px; " title="PRODESP Tecnologia da Informa&ccedil;&atilde;o" width="46px"/>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
